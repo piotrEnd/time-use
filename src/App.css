@@ -1,38 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&family=Yeseva+One&display=swap");
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 98%;
+  background-color: #f8f9f5;
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-family: "Yeseva One", serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (min-width: 615px) {
+  .opening {
+    width: 615px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.opening {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.opening span {
+  display: block;
+}
+
+.opening:first-of-type {
+  margin-top: 2em;
+}
+
+.select {
+  font-weight: bolder;
+}
+
+.select-container h3 {
+  font-size: 0.875em;
+}
+
+.select-container h3:first-child {
+  margin-right: 5px;
+}
+
+.select-container h3:nth-of-type(2) {
+  margin-left: 5px;
+}
+
+@media screen and (min-width: 615px) {
+  .select-container h3 {
+    font-size: 1.25em;
+  }
+
+  .select-container h3:first-child {
+    margin-right: 15px;
+  }
+
+  .select-container h3:nth-of-type(2) {
+    margin-left: 15px;
+  }
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+}
+
+@media screen and (min-width: 615px) {
+  .select {
+    min-width: 150px;
+    text-align: center;
+  }
+}
+
+.chart {
+  font-family: "Yeseva One", serif;
+  overflow: visible;
+  display: block;
+  height: 400px;
+  min-height: 200px;
+}
+
+.legendText {
+  font-size: 0.875em !important;
+}
+
+@media screen and (min-width: 615px) {
+  .legend {
+    height: 500px;
+    margin: 0 auto;
+  }
+
+  .legend .legendText {
+    font-size: 1em !important;
+  }
+}
+
+.legend svg:hover {
+  width: auto;
+  overflow: visible;
+}
+
+.chart .rectangle {
+  transition-duration: 0.3s;
+  transition-property: filter, opacity;
+  opacity: 1;
+  filter: saturate(100%);
+}
+
+.chart:hover .rectangle {
+  opacity: 0.4;
+  filter: saturate(50%);
+}
+
+.chart .rectangle:hover {
+  opacity: 1;
+  filter: saturate(100%);
+}
+
+.rectangleText {
+  pointer-events: none; /* hover over text inside rectangle doesn't impact the hover on rectangle */
+}
+
+.legend {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.left,
+.right {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-basis: 100%;
+  flex: 1;
+  max-width: 550px;
+}
+
+.story:first-of-type {
+  margin-top: 2.25em;
+}
+
+@media screen and (max-width: 701px) {
+  .left {
+    max-width: 375px;
+  }
+
+  .left h3 {
+    text-align: center;
+    margin-left: 1.25em;
+  }
+
+  .story {
+    margin: 0.5em 0;
+  }
+
+  .story:first-of-type {
+    margin-top: 1em;
+  }
+}
+
+.right {
+  justify-content: flex-end;
+  min-width: 300px;
+}
+
+.story:last-child {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 2em;
+}
+
+.story span {
+  display: block;
+}
+
+.story a {
+  align-self: start;
+  margin-left: 2px;
+  margin-bottom: 20px;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.story a::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 70%;
+  left: -0.1px;
+  right: -0.1px;
+  bottom: 0;
+  transition: top 0.1s ease-in-out;
+  background-color: #a091c9;
+}
+
+.story a:hover::after {
+  top: 0;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
